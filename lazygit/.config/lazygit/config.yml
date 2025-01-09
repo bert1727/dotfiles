@@ -1,0 +1,7 @@
+gui:
+  border: "double"
+  theme:
+    inactiveBorderColor:
+      #- "#4C566A" # nordic
+      # - "#3b4261"
+      - "#9b9ea4"
