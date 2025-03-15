@@ -12,7 +12,7 @@ color:
   when: auto
   theme: custom
 
-date: '+%A, %d %B %Y, %R'
+# date: '+%A, %d %B %Y, %R'
 
 # == Dereference ==
 # Whether to dereference symbolic links.
@@ -27,7 +27,7 @@ icons:
   theme: fancy
   # Separator between icon and the name
   # Default to 1 space
-  separator: ' '
+  separator: " "
 
 # == Ignore Globs ==
 # A list of globs to ignore when listing.
@@ -45,7 +45,7 @@ layout: grid
 recursion:
   # Whether to enable recursion.
   # Possible values: false, true
-  
+
   #enabled: false
   enabled: false
   # How deep the recursion should go. This has to be a positive integer. Leave
@@ -73,7 +73,7 @@ no-symlink: false
 # == Total size ==
 # Whether to display the total size of directories.
 # Possible values: false, true
-total-size: true
+total-size: false
 
 # == Hyperlink ==
 # Attach hyperlink to filenames
@@ -88,4 +88,3 @@ symlink-arrow: ⇒
 # Whether to display block headers.
 # Possible values: false, true
 header: true
-

@@ -28,7 +28,9 @@ exec_always --no-startup-id picom
 # exec --no-startup-id feh --bg-scale ~/wallpaper/evening-landscape.jpg
 # exec --no-startup-id feh --bg-scale ~/Pictures/обои/4.png
 # exec --no-startup-id feh --bg-scale ~/Pictures/обои/misty_forest.jpg
-exec --no-startup-id feh --bg-scale /home/bert/Pictures/обои/5.png
+# exec --no-startup-id feh --bg-scale /home/bert/Pictures/обои/5.png
+# exec_always --no-startup-id feh --bg-scale /home/bert/cool_wallpaper/Wallpapers/wallpapers/goldenhour.jpg
+exec_always --no-startup-id feh --bg-scale /home/bert/cool_wallpaper/Wallpapers/wallpapers/beach.jpg
 # exec --no-startup-id xrdb -merge ~/.Xresources
 
 # Polybar

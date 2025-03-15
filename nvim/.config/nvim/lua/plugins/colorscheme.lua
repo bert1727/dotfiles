@@ -133,6 +133,8 @@ return {
     -- lazy = true,
     name = "catppuccin",
     opts = {
+      -- transparent_background = true,
+      transparent_background = false,
       integrations = {
         aerial = true,
         alpha = true,
@@ -247,9 +249,19 @@ return {
     },
   },
 
-  {
-    "olimorris/onedarkpro.nvim",
-  },
+  { "olimorris/onedarkpro.nvim" },
+
+  { "EdenEast/nightfox.nvim" },
+
+  { "savq/melange-nvim" },
+
+  { "xero/miasma.nvim" },
+
+  { "Biscuit-Theme/nvim" },
+
+  { "scottmckendry/cyberdream.nvim" },
+
+  { "projekt0n/github-nvim-theme", name = "github-theme" },
 
   {
     "LazyVim/LazyVim",
@@ -257,8 +269,12 @@ return {
       colorscheme = "nordic",
       -- colorscheme = "gruvbox-material",
       -- colorscheme = "gruvbox",
+      -- colorscheme = "duskfox",
       -- colorscheme = "tokyonight-moon",
       -- colorscheme = "catppuccin-macchiato",
+      -- colorscheme = "github_dark_dimmed",
+      -- colorscheme = "onedark",
+      -- colorscheme = "nightfox",
       -- colorscheme = "catppuccin-mocha",
       -- colorscheme = "rose-pine",
       -- colorscheme = "everforest",

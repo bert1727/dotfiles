@@ -6,6 +6,7 @@ if status is-interactive
     zoxide init fish | source
     fzf --fish | source
 end
+
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
@@ -16,16 +17,25 @@ function y
 end
 
 # List Directory
-alias ls="lsd"
-alias l="ls -l"
-alias la="l -a"
+alias l="eza -lh --icons=always --no-user"
+alias la="eza -lah --icons=always --no-user"
+alias lt="eza -TL=2 -ah"
+
+# List Directory with size
+alias ls="eza -lah --icons=always --no-user --total-size"
+alias lod="eza -lDah --icons=always --no-user --total-size"
+alias lof="eza -lfah --icons=always --no-user"
+
+# alias ls="lsd"
+# alias l="ls -l"
+# alias la="l -a"
+# alias lt="ls --tree"
 alias lla="ls -la"
-alias lt="ls --tree"
 
 alias c="clear"
 alias n="nvim"
 alias t="tmux"
-
+alias tb="~/tmux_script.sh"
 
 alias mine="prime-run Downloads/mmc-cracked-lin64/UltimMC/UltimMC"
 # env variable
@@ -41,7 +51,7 @@ export PATH="$PATH:/home/bert/.dotnet/tools"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
 # export PATH="$PATH:$HOME/.dotnet/tools"
-
+export PATH="$PATH:$HOME/.local/bin/"
 # Handy change dir shortcuts
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
@@ -66,8 +76,13 @@ abbr mkdir 'mkdir -p'
 # "
 # zfetch
 # rxfetch
-sh /home/bert/welcome-script.sh
+# sh /home/bert/welcome-script.sh
 
+# Open in tmux popup if on tmux, otherwise use --height mode
+# export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'
+
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'bat -n --color=always {}'
@@ -76,4 +91,4 @@ export FZF_CTRL_T_OPTS="
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
-  --preview 'tree -C {}'"
+  --preview 'eza -TL=2 -ah --icons=always {}'"

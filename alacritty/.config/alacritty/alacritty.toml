@@ -1,18 +1,19 @@
 [font]
-size = 17.0
+size = 13.0
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-# normal = { family = "FiraCode", style = "Regular"}
+# normal = { family = "Iosevka Nerd Font", style = "Regular" }
+# normal = { family = "FiraCode", style = "Regular" }
 
 [window]
 #padding = { x = 10, y = 10 }
 decorations = "None"
-dimensions = { columns = 100, lines = 30 }
-startup_mode = "Maximized"
-decorations_theme_variant = "Dark"
-opacity = 0.7
-blur = true
+# dimensions = { columns = 100, lines = 30 }
+# startup_mode = "Maximized"
+# decorations_theme_variant = "Dark"
+opacity = 0.8
+# blur = true
 [cursor]
-style = { shape = "Beam", blinking = "Off" }
+style = { shape = "Block", blinking = "Off" }
 
 [general]
 import = [
@@ -22,3 +23,9 @@ import = [
     "~/.config/alacritty/catppuccin-macchiato.toml",
     # "~/.config/alacritty/catppuccin-mocha.toml"
 ]
+
+[mouse]
+hide_when_typing = true
+
+[debug]
+render_timer = false

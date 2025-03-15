@@ -8,67 +8,56 @@ o.smartcase = true
 o.incsearch = true
 o.scrolloff = 7
 
-o.cursorlineopt = "both"
-o.cursorline = false
--- o.clipboard = "unnamed"
+o.cursorline = true
+o.cursorlineopt = "number"
 
-vim.diagnostic.config({
-  virtual_text = false,
-})
+o.list = true
+o.listchars = "eol:↵,trail:-,extends:…,tab:   ,"
+o.tabstop = 4 --num of space characters per tab
+o.shiftwidth = 4 --spaces per indentation level
+o.numberwidth = 4 -- Set number column width to 2 {default 4} (default: 4)
 
-vim.lsp.inlay_hint.enable(false, { 0 })
+o.termguicolors = true
+
+o.number = true
+o.statuscolumn = [[%!v:lnum == line('.') ? printf('%-4d', v:lnum) : printf('%4d', v:relnum)]]
+
+vim.g.snacks_animate = true
+
+if vim.g.neovide then
+  -- Put anything you want to happen only in Neovide here
+  vim.o.guifont = "JetBrainsMono Nerd Font:h13"
+  vim.g.neovide_cursor_smooth_blink = true
+  vim.g.neovide_refresh_rate = 144
+end
+
+o.spelllang = "en_us,ru_ru"
+
+-- vim.wo.number = true -- Make line numbers default (default: false)
+-- o.number = true
+-- o.relativenumber = true -- Set relative numbered lines (default: false)
+-- o.signcolumn = "yes"
+-- vim.wo.signcolumn = "yes" -- Keep signcolumn on by default (default: 'auto')
+
 -- vim.o.updatetime = 250
 -- o.guicursor = "n-v-i-c:block-Cursor"
 -- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
 o.expandtab = true --expand tab input with spaces characters
-o.expandtab = true -- expand tab input with spaces characters
+-- o.expandtab = true -- expand tab input with spaces characters
 o.smartindent = true --syntax aware indentations for newline inserts
-o.tabstop = 4 --num of space characters per tab
-o.shiftwidth = 4 --spaces per indentation level
-o.smartindent = true
+vim.o.autoindent = false -- Copy indent from current line when starting new one (default: true)
 
-vim.g.snacks_animate = true
+-- o.relativenumber = true
+-- vim.g.lazyvim_python_lsp = "pylsp"
+-- vim.g.lazyvim_python_lsp = "basedpyright"
+vim.g.lazyvim_python_lsp = "pyright"
+-- vim.g.completion.menu
+-- vim.g.blink.completion.ghost_text.enabled = true
 
--- vim.api.nvim_buf_set_extmark(0, vim.api.nvim_create_namespace(""), 0, -1, {
---   hl_eol = true,
--- })
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
--- vim.lsp.inlay_hint u
---   vim.api.nvim_buf_set_extmark(bufnr, vim.api.nvim_create_namespace("InlayHints"), line, 0, {
---   virt_text = virt_text,
---   virt_text_pos = "eol",
---   hl_mode = "combine",
--- })
-
--- -- Функция для установки inlay hints в конце строки
--- local function set_inlay_hints_at_eol(bufnr, line, hints)
---   local virt_text = {}
---   for _, hint in ipairs(hints) do
---     table.insert(virt_text, { hint.text, "LspInlayHint" })
---   end
---   vim.api.nvim_buf_set_extmark(bufnr, vim.api.nvim_create_namespace("InlayHints"), line, 0, {
---     virt_text = virt_text,
---     virt_text_pos = "eol",
---     hl_mode = "combine",
---   })
--- end
---
--- -- Пример использования функции
--- local bufnr = vim.api.nvim_get_current_buf()
--- local line = 10 -- Номер строки (начиная с 0)
--- local hints = {
---   { text = ": int" },
---   { text = ": string" },
--- }
--- set_inlay_hints_at_eol(bufnr, line, hints)
---
--- local ns_id = vim.api.nvim_create_namespace("inline_hints") -- Создаем пространство имен
--- local buffer = 0 -- Текущий буфер
--- local line = 0 -- Строка (нумерация начинается с 0)
--- local col = -1 -- Указываем -1, чтобы добавить виртуальный текст в конец строки
---
--- vim.api.nvim_buf_set_extmark(buffer, ns_id, line, col, {
---   virt_text = { { "<hint>", "Comment" } }, -- Текст и его выделение
---   virt_text_pos = "eol", -- Указываем, что текст должен быть в конце строки
--- })
+vim.o.updatetime = 250
+vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
