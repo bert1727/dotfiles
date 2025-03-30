@@ -1,6 +1,7 @@
 -- Custom Parameters (with defaults)
 return {
   "David-Kunz/gen.nvim",
+  lazy = true,
   opts = {
     -- model = "deepseek-r1", -- The default model to use.
     model = "llama3.1",

@@ -10,6 +10,7 @@ map("i", "<A-C-h>", "<Left>")
 map("i", "<A-C-l>", "<Right>")
 
 map("n", "<M-C-j>", "i<CR><ESC>")
+map("n", "<M-h>", "i<CR><ESC>")
 
 map("n", "-", require("oil").toggle_float, { desc = "Toggle oil float" })
 map("n", "<leader>_", "<CMD>Oil<CR>", { desc = "Open parent directory" })

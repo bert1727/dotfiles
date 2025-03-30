@@ -1,17 +1,30 @@
 return {
   {
     "ellisonleao/gruvbox.nvim",
+    lazy = true,
     config = function()
       require("gruvbox").setup({
-        -- contrast = "hard",
-        dim_inactive = false,
+        terminal_colors = true, -- add neovim terminal colors
+        undercurl = true,
+        underline = true,
+        bold = true,
         italic = {
-          strings = false,
+          strings = true,
           emphasis = true,
           comments = true,
           operators = false,
           folds = true,
         },
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        invert_intend_guides = false,
+        inverse = true, -- invert background for search, diffs, statuslines and errors
+        contrast = "", -- can be "hard", "soft" or empty string
+        palette_overrides = {},
+        overrides = {},
+        dim_inactive = false,
         transparent_mode = false,
       })
     end,
@@ -19,6 +32,8 @@ return {
 
   {
     "rebelot/kanagawa.nvim",
+    lazy = true,
+
     opts = function()
       require("kanagawa").setup({
         transparent = false,
@@ -32,14 +47,18 @@ return {
 
   {
     "sainnhe/sonokai",
+    lazy = true,
   },
 
   {
     "shaunsingh/nord.nvim",
+    lazy = true,
   },
 
   {
     "AlexvZyl/nordic.nvim",
+    lazy = true,
+
     config = function()
       require("nordic").setup({
         -- Enable bold keywords.
@@ -49,9 +68,9 @@ return {
         -- Enable editor background transparency.
         transparent = {
           -- Enable transparent background.
-          bg = false,
+          bg = true,
           -- Enable transparent background for floating windows.
-          float = false,
+          float = true,
         },
         -- Enable brighter float border.
         bright_border = true,
@@ -130,7 +149,7 @@ return {
 
   {
     "catppuccin/nvim",
-    -- lazy = true,
+    lazy = true,
     name = "catppuccin",
     opts = {
       -- transparent_background = true,
@@ -187,13 +206,15 @@ return {
 
   {
     "Mofiqul/dracula.nvim",
+    lazy = true,
   },
 
-  { "rose-pine/neovim", name = "rose-pine" },
-  { "sainnhe/everforest" },
+  { "rose-pine/neovim", name = "rose-pine", lazy = true },
+  { "sainnhe/everforest", lazy = true },
 
   {
     "sainnhe/gruvbox-material",
+    lazy = true,
     config = function()
       -- require("gruvbox-material").setup({
       --   transparent_background = true,
@@ -205,6 +226,7 @@ return {
 
   {
     "baliestri/aura-theme",
+    lazy = true,
     config = function(plugin)
       vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
       -- vim.cmd([[colorscheme aura-dark]])
@@ -249,24 +271,25 @@ return {
     },
   },
 
-  { "olimorris/onedarkpro.nvim" },
+  { "olimorris/onedarkpro.nvim", lazy = true },
 
-  { "EdenEast/nightfox.nvim" },
+  { "EdenEast/nightfox.nvim", lazy = true },
 
-  { "savq/melange-nvim" },
+  { "savq/melange-nvim", lazy = true },
 
-  { "xero/miasma.nvim" },
+  { "xero/miasma.nvim", lazy = true },
 
-  { "Biscuit-Theme/nvim" },
+  { "Biscuit-Theme/nvim", lazy = true },
 
-  { "scottmckendry/cyberdream.nvim" },
+  { "scottmckendry/cyberdream.nvim", lazy = true },
 
-  { "projekt0n/github-nvim-theme", name = "github-theme" },
+  { "projekt0n/github-nvim-theme", name = "github-theme", lazy = true },
 
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "nordic",
+      -- colorscheme = "dracula",
       -- colorscheme = "gruvbox-material",
       -- colorscheme = "gruvbox",
       -- colorscheme = "duskfox",

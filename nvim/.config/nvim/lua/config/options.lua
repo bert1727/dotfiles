@@ -12,7 +12,10 @@ o.cursorline = true
 o.cursorlineopt = "number"
 
 o.list = true
-o.listchars = "eol:↵,trail:-,extends:…,tab:   ,"
+
+-- o.listchars = "eol:↵,trail:-,extends:…,tab:   ,"
+o.listchars = "eol: ,trail:-,extends:…,tab:   ,"
+
 o.tabstop = 4 --num of space characters per tab
 o.shiftwidth = 4 --spaces per indentation level
 o.numberwidth = 4 -- Set number column width to 2 {default 4} (default: 4)
@@ -20,7 +23,7 @@ o.numberwidth = 4 -- Set number column width to 2 {default 4} (default: 4)
 o.termguicolors = true
 
 o.number = true
-o.statuscolumn = [[%!v:lnum == line('.') ? printf('%-4d', v:lnum) : printf('%4d', v:relnum)]]
+-- o.statuscolumn = [[%!v:lnum == line('.') ? printf('%-4d', v:lnum) : printf('%4d', v:relnum)]]
 
 vim.g.snacks_animate = true
 
@@ -34,9 +37,9 @@ end
 o.spelllang = "en_us,ru_ru"
 
 -- vim.wo.number = true -- Make line numbers default (default: false)
--- o.number = true
+o.number = true
 -- o.relativenumber = true -- Set relative numbered lines (default: false)
--- o.signcolumn = "yes"
+o.signcolumn = "yes"
 -- vim.wo.signcolumn = "yes" -- Keep signcolumn on by default (default: 'auto')
 
 -- vim.o.updatetime = 250
@@ -55,9 +58,34 @@ vim.g.lazyvim_python_lsp = "pyright"
 -- vim.g.completion.menu
 -- vim.g.blink.completion.ghost_text.enabled = true
 
+-- Настройка значков для диагностики
+local signs = { Error = "✘", Warn = "▲", Hint = "⚑", Info = "»" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
+-- vim.g.trouble_lualine = true
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.diagnostic.config({ virtual_text = false })
+  end,
+})
+vim.lsp.inlay_hint.enable(false, { bufnr = nil })
 vim.diagnostic.config({
   virtual_text = false,
+  virtual_lines = {
+    current_line = true,
+  },
 })
 
-vim.o.updatetime = 250
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+-- vim.o.updatetime = 250
+-- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+-- change color of the selection
+-- vim.cmd([[
+--   highlight Visual guibg=#fff guifg=white
+--   highlight Visual ctermbg=238 ctermfg=white
+-- ]])
+
+-- vim.g.lazyvim_picker = "fzf"
+vim.g.lazyvim_picker = "snacks"
