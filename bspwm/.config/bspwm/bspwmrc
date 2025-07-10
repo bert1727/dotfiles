@@ -1,0 +1,114 @@
+#! /bin/sh
+
+pgrep -x sxhkd >/dev/null || sxhkd &
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+# bspc config border_width 5
+# bspc config window_gap 17
+bspc config border_width 0
+bspc config window_gap 15
+
+bspc config split_ratio 0.52
+bspc config borderless_monocle false
+bspc config gapless_monocle false
+
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floatinsuper + g
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
+
+# Launch polybar
+"$HOME"/.config/polybar/launch.sh --blocks
+
+# Launch picom
+picom &
+
+# dunst
+dunst &
+
+blueberry-tray &
+# bluetooth
+# internet
+nm-applet &
+
+# Run EWW.
+# $HOME/.local/bin/eww/target/release/eww -c $HOME/.config/eww/bar --restart open bar &
+
+# ##############################################################################
+# #                            GENERAL CONFIGURATION                           #
+# ##############################################################################
+#
+# bspc subscribe node_state | while read -r _ _ _ _ state flag; do
+# 	if [ "$state" != "fullscreen" ]; then
+# 		continue
+# 	fi
+# 	if [ "$flag" == on ]; then
+# 		$HOME/.local/bin/eww/target/release/eww -c $HOME/.config/eww/bar close-all
+# 	else
+# 		$HOME/.local/bin/eww/target/release/eww -c $HOME/.config/eww/bar open bar
+# 	fi
+# done &
+
+#123123123
+
+# feh --bg-scale /home/bert/cool_wallpaper/Wallpapers/wallpapers/aesthetic_blue_jupiter.jpg
+# feh --bg-scale /home/bert/Pictures/обои/evening_sky.png
+# feh --bg-scale /home/bert/Pictures/обои/darek-zabrocki-marine-11-final.jpg
+# feh --bg-scale /home/bert/Pictures/обои/cat_leaves.png
+# feh --bg-scale /home/bert/wallpaper/mystical-night-in-town.jpg
+# feh --bg-scale feh --bg-scale /home/bert/wallpaper/river_to_castle_theme_blue.jpg
+# feh --bg-scale /home/bert/Pictures/обои/forest.jpg
+# feh --bg-scale /home/bert/someone_dotfiles/.dotfiles/.wallpapers/tokyonight-mountain.jpg
+# feh --bg-scale /home/bert/Pictures/обои/astronaut.jpg
+# feh --bg-scale /home/bert/Pictures/обои/wall.jpg
+# feh --bg-scale /home/bert/cool_wallpaper/Wallpapers/wallpapers/goldenhour.jpg
+# feh --bg-scale /home/bert/cool_wallpaper/Wallpapers/wallpapers/darkroad.jpg
+# feh --bg-scale /home/bert/wallpaper/rocky_land.jpg
+# feh --bg-scale '/home/bert/cool_wallpaper/Wallpapers/wallpapers/to-the-moon-(FHD).jpg'
+feh --bg-scale /home/bert/cool_wallpaper/Wallpapers/wallpapers/ocean.jpg
+# feh --bg-scale /home/bert/Pictures/обои/darek-zabrocki-marine-11-final.jpg
+# feh --bg-scale /home/bert/cool_wallpaper/Wallpapers/wallpapers/cozywindow.jpg
+bash ~/.xprofile
+
+# Polybar
+/home/bert/dotfiles/polybar/.config/polybar/launch.sh
+xrdb merge ~/.Xresources
+# Rules
+bspc rule -a firefox desktop='^1'
+bspc rule -a com.mitchellh.ghostty desktop='^2'
+bspc rule -a kitty desktop='^2'
+bspc rule -a Alacritty desktop='^2'
+bspc rule -a Google-chrome desktop='^3'
+bspc rule -a Blueberry.py state=floating follow=on
+bspc rule -a TelegramDesktop state=floating follow=on
+bspc rule -a gnome-calculator state=floating follow=on
+# set $white #D8DEE9
+# set $bg #282828
+# set $red #cc241d
+# set $green #98971a
+# set $yellow #d79921
+# set $blue #458588
+# set $purple #b16286
+# set $aqua #689d68
+# set $gray #a89984
+# set $darkgray #1d2021
+
+# bspc config normal_border_color "#44475a"   # Цвет границ для обычных окон
+# bspc config active_border_color "#282828"   # Цвет границ для активного окна
+# bspc config focused_border_color "#a89984"  # Цвет границ для фокусированного окна
+# bspc config presel_feedback_color "#ff5555" # Цвет для предварительного выбора
+
+bspc config focused_border_color "#7899FA"
+
+# bspc config focused_border_color "#bd93f9"
+bspc config normal_border_color "#1f222b"
+
+bspc config active_border_color "#bd93f9"
+bspc config presel_feedback_color "#6272a4"
+
+greenclip daemon >/dev/null
+
+# Low battery notifier
+~/.config/bspwm/scripts/low_bat_notifier.sh
