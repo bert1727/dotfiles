@@ -25,7 +25,7 @@ o.termguicolors = true
 o.number = true
 -- o.statuscolumn = [[%!v:lnum == line('.') ? printf('%-4d', v:lnum) : printf('%4d', v:relnum)]]
 
-vim.g.snacks_animate = true
+-- vim.g.snacks_animate = true
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here

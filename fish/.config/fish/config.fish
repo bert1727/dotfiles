@@ -35,12 +35,13 @@ alias lla="ls -la"
 alias c="clear"
 alias n="nvim"
 alias t="tmux"
-alias tb="~/tmux_script.sh"
+alias hx="helix"
+alias tb="tmux new-session -A -s bert"
 
 alias mine="prime-run Downloads/mmc-cracked-lin64/UltimMC/UltimMC"
 # env variable
 export EDITOR=nvim
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 export TERM="xterm-256color"
 
 export PATH="$PATH:$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/"

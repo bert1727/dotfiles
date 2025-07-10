@@ -68,9 +68,9 @@ return {
         -- Enable editor background transparency.
         transparent = {
           -- Enable transparent background.
-          bg = true,
+          bg = false,
           -- Enable transparent background for floating windows.
-          float = true,
+          float = false,
         },
         -- Enable brighter float border.
         bright_border = true,
@@ -209,7 +209,7 @@ return {
     lazy = true,
   },
 
-  { "rose-pine/neovim", name = "rose-pine", lazy = true },
+  { "rose-pine/neovim", name = "rose-pine", lazy = true, opts = { styles = { transparency = true } } },
   { "sainnhe/everforest", lazy = true },
 
   {
@@ -226,49 +226,12 @@ return {
 
   {
     "baliestri/aura-theme",
-    lazy = true,
+    lazy = false,
+    priority = 1000,
     config = function(plugin)
       vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
       -- vim.cmd([[colorscheme aura-dark]])
     end,
-    opts = {
-      integrations = {
-        aerial = true,
-        alpha = true,
-        cmp = true,
-        dashboard = true,
-        flash = true,
-        grug_far = true,
-        gitsigns = true,
-        headlines = true,
-        illuminate = true,
-        indent_blankline = { enabled = true },
-        leap = true,
-        lsp_trouble = true,
-        mason = true,
-        markdown = true,
-        mini = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-          },
-        },
-        navic = { enabled = true, custom_bg = "lualine" },
-        neotest = true,
-        neotree = true,
-        noice = true,
-        notify = true,
-        semantic_tokens = true,
-        telescope = true,
-        treesitter = true,
-        treesitter_context = true,
-        which_key = true,
-      },
-    },
   },
 
   { "olimorris/onedarkpro.nvim", lazy = true },
@@ -281,14 +244,28 @@ return {
 
   { "Biscuit-Theme/nvim", lazy = true },
 
-  { "scottmckendry/cyberdream.nvim", lazy = true },
+  -- { "scottmckendry/cyberdream.nvim", lazy = true },
 
   { "projekt0n/github-nvim-theme", name = "github-theme", lazy = true },
+
+  {
+    "thesimonho/kanagawa-paper.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      dim_inactive = true,
+      cache = false,
+      auto_plugins = true,
+    },
+  },
+
+  { "datsfilipe/vesper.nvim", lazy = true },
 
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "nordic",
+      -- colorscheme = "kanagawa-paper-ink",
       -- colorscheme = "dracula",
       -- colorscheme = "gruvbox-material",
       -- colorscheme = "gruvbox",
@@ -299,7 +276,7 @@ return {
       -- colorscheme = "onedark",
       -- colorscheme = "nightfox",
       -- colorscheme = "catppuccin-mocha",
-      -- colorscheme = "rose-pine",
+      -- colorscheme = "rose-pine-moon",
       -- colorscheme = "everforest",
       -- colorscheme = "gruvbox-material",
     },
